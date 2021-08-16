@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block navbar %}
+	<ul class="nav navbar-nav">
+          <li><a href="{{url_for('home')}}">Home</a></li>
+          <li class="active"><a href="{{url_for('inventory')}}">Inventory</a></li>
+          <li><a href="#">Need Components</a></li>
+          <li><a href="#">Timesheet</a></li>
+  </ul>
+<a class="btn btn-success pull-right" href="{{url_for('add_components')}}"><span class="glyphicon glyphicon-plus"></span>Add Item</a>
+<a class="btn btn-warning pull-right" href="#"><span class="glyphicon glyphicon-plus"></span>Add Project</a>
+{% endblock %}
+
+{% block jumbotron%}
+
+{% endblock %}
+
+{% block body %}
+<div class="container">
+   <div id="parent" class="form-group">
+      <label for="myAutocomplete">SELECT THE FIRST TOP LEFT BOX</label>
+      <input type="text" id="myAutocomplete" class="form-control binAutocomplete">
+    </div>
+</div>
+<div class="container-fluid">
+<table class="table table-bordered">
+      <tbody>
+      <tr>
+        <td><a class="btn btn-info btn-block" href="#" id="A2" onClick="reply_click(this.id)">Column 11</a></td>
+        <td><a class="btn btn-info btn-block" href="#" id="A2" onClick="reply_click(this.id)">Column 12</a></td>
+        <td><a class="btn btn-info btn-block" href="#" id="A3" onClick="reply_click(this.id)">Column 13</a></td>
+        <td><a class="btn btn-info btn-block" href="#" id="A4" onClick="reply_click(this.id)">Column 14</a></td>
+      </tr>
+      <tr>
+        <td><a class="btn btn-info btn-block" href="#" id="B1" onClick="reply_click(this.id)">Column 21</a></td>
+        <td><a class="btn btn-info btn-block" href="#" id="B2" onClick="reply_click(this.id)">Column 22</a></td>
+        <td><a class="btn btn-info btn-block" href="#" id="B3" onClick="reply_click(this.id)">Column 23</a></td>
+        <td><a class="btn btn-info btn-block" href="#" id="B4" onClick="reply_click(this.id)">Column 24</a></td>
+      </tr>
+      <tr>
+        <td><a class="btn btn-info btn-block" href="#" id="C1" onClick="reply_click(this.id)">Column 31</a></td>
+        <td><a class="btn btn-info btn-block" href="#" id="C2" onClick="reply_click(this.id)">Column 32</a></td>
+        <td><a class="btn btn-info btn-block" href="#" id="C3" onClick="reply_click(this.id)">Column 33</a></td>
+        <td><a class="btn btn-info btn-block" href="#" id="C4" onClick="reply_click(this.id)">Column 34</a></td>
+      </tr>
+      <tr>
+        <td><a class="btn btn-info btn-block" href="#" id="D1" onClick="reply_click(this.id)">Column 41</a></td>
+        <td><a class="btn btn-info btn-block" href="#" id="D2" onClick="reply_click(this.id)">Column 42</a></td>
+        <td><a class="btn btn-info btn-block" href="#" id="D3" onClick="reply_click(this.id)">Column 43</a></td>
+        <td><a class="btn btn-info btn-block" href="#" id="D4" onClick="reply_click(this.id)">Column 44</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endblock %}

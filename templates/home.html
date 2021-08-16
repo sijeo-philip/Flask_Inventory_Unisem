@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block body %}
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			{% for msg in messages %}
+			<div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ msg }}
+       </div>
+				{%endfor%}
+			{% endif %}
+	{% endwith %}
+{% endblock %}
+
+{% block pre_navbar %}
+{% if login_status == True %}
+<h4 class="text-right text-green">Hi <strong>{{name}} !</strong></h4>
+{% endif %}
+{% endblock %}
+
+{% block navbar %}
+	<ul class="nav navbar-nav">
+          <li class="active"><a href="{{url_for('home')}}">Home</a></li>
+          <li><a href="{{url_for('inventory')}}">Inventory</a></li>
+          <li><a href="#">Need Components</a></li>
+          <li><a href="#">Timesheet</a></li>
+         </ul>
+{% if login_status == True %}
+<a class="btn btn-primary pull-right" href="{{url_for('logout')}}">LOGOUT</a>
+{% else %}
+<a class="btn btn-primary pull-right" href="{{url_for('login')}}">LOGIN</a>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+      background-color: #17a2b8;
+      height: 100vh;
+    }
+  </style>
+  <div id="login">
+
+         <div class="container">
+           {% with messages = get_flashed_messages() %}
+         		{% if messages %}
+         			{% for msg in messages %}
+         			  <div class="alert alert-warning">
+                 <button type="button" class="close" data-dismiss="alert">&times;</button>
+                  {{ msg }}
+                  </div>
+         				   {%endfor%}
+         			    {% endif %}
+         	    {% endwith %}
+             <div id="login-row" class="row justify-content-center align-items-center">
+                 <div id="login-column" class="col-md-6">
+                     <div id="login-box" class="col-md-12">
+                         <form id="login-form" class="form" action="" method="post">
+                             <h3 class="text-center text-white">SIGN UP</h3>
+                                 {{ register_form.hidden_tag() }}
+                             <div class="form-group">
+                                 {{ register_form.username.label }}
+                                 {{ register_form.username(class="form-control", id="username")}}
+                             </div>
+                             <div class="form-group">
+                                 {{ register_form.password.label }}
+                                 {{ register_form.password(class="form-control", id="password")}}
+                             </div>
+                             <div class="form-group">
+                                 {{ register_form.confirm_password.label }}
+                                 {{ register_form.confirm_password(class="form-control", id="password")}}
+                             </div>
+                             <div class="form-group">
+                                 {{ register_form.email.label }}
+                                 {{ register_form.email(class="form-control", id="email")}}
+                             </div>
+                             <div class="form-group">
+                                 {{ register_form.submit(class="btn btn-success btn-md")}}
+                             </div>
+
+                         </form>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+</body>
+</html>

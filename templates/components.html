@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+
+
+<body>
+  <div class="container-fluid">
+  <h2>&emsp;ENTER COMPONENTS AS PER THEIR TYPES</h2>
+  </div>
+
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#resistors">RESISTORS (<span>&#8486;</span>)</a></li>
+    <li><a data-toggle="tab" href="#capacitors">CAPACITORS (F)</a></li>
+    <li><a data-toggle="tab" href="#inductors">INDUCTORS (H)</a></li>
+    <li><a data-toggle="tab" href="#diodes">DIODES</a></li>
+     <li><a data-toggle="tab" href="#transistors">TRANSISTORS</a></li>
+    <li><a data-toggle="tab" href="#mosfets">MOSFETS</a></li>
+    <li><a data-toggle="tab" href="#leds">LED</a></li>
+    <li><a data-toggle="tab" href="#actives">ACTIVES</a></li>
+    <li><a data-toggle="tab" href="#mechanicals">MECHANICALS</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="resistors" class="tab-pane fade in active">
+      <form method="POST">
+	{{ resistor_form.hidden_tag() }}
+           <div class="row" id="row_inventory">
+             <div class="col-md-4"> {{ resistor_form.manufacturerPartNo.label }}
+              {{ resistor_form.manufacturerPartNo(class="form-control", id="resMPN") }}</div>
+             <div class="col-md-4">
+              {{ resistor_form.manufacturer_name.label }}
+              {{resistor_form.manufacturer_name(class="form-control", id="resMake") }}
+              </div>
+             </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ resistor_form.resValue.label }}
+                  {{ resistor_form.resValue(class="form-control", id="resValue") }}
+                </div>
+                <div class="col-md-4">
+                  {{ resistor_form.measure.label }} <br>
+                  {{ resistor_form.measure(id="resValueUnits") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ resistor_form.wattage.label }}
+                  {{ resistor_form.wattage(class="form-control", id="resWatt") }}
+                </div>
+                <div class="col-md-4">
+                  {{ resistor_form.watt_measure.label }} <br>
+                  {{ resistor_form.watt_measure(id="resWattUnits") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ resistor_form.tolerance.label }}
+                  {{ resistor_form.tolerance(class="form-control", id="resTolerance") }}
+                </div>
+                <div class="col-md-4">
+                  {{ resistor_form.resType.label }} <br>
+                  {{ resistor_form.resType(class="form-control", id="resType") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ resistor_form.resPackage.label }}
+                  {{ resistor_form.resPackage(class="form-control", id="resPackage") }}
+                </div>
+                <div class="col-md-4">
+                  {{ resistor_form.project_id.label }} <br>
+                  {{ resistor_form.project_id(class="form-control", id="projectID") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ resistor_form.bin_no.label }}
+                  {{ resistor_form.bin_no(class="form-control", id="resBinNo") }}
+                </div>
+                <div class="col-md-4">
+                  {{ resistor_form.remark.label }} <br>
+                  {{ resistor_form.remark(class="form-control", id="comment") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+                 <div class="col-md-4"></div>
+                 <div class="col-md-4"></div>
+             </div>
+             <div class="row" id="row_inventory">
+                 <div class="col-md-4"></div>
+                 <div class="col-md-2"> {{ resistor_form.submit(class="btn btn-success", id="additembutton") }}</div>
+                 <div class="col-md-2"> <a href="{{url_for('inventory') }}" class="btn btn-info push-right">GO BACK</a></div>
+              </div>
+
+        </form>
+    </div>
+    <div id="capacitors" class="tab-pane fade">
+      <form method="POST">
+	{{ capacitor_form.hidden_tag() }}
+           <div class="row" id="row_inventory">
+             <div class="col-md-4"> {{ capacitor_form.manufacturerPartNo.label }}
+              {{ capacitor_form.manufacturerPartNo(class="form-control", id="capMPN") }}</div>
+             <div class="col-md-4">
+              {{ capacitor_form.manufacturer_name.label }}
+              {{ capacitor_form.manufacturer_name(class="form-control", id="capMake") }}
+              </div>
+             </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ capacitor_form.capValue.label }}
+                  {{ capacitor_form.capValue(class="form-control", id="capValue") }}
+                </div>
+                <div class="col-md-4">
+                  {{ capacitor_form.measure.label }} <br>
+                  {{ capacitor_form.measure(id="capValueUnits") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ capacitor_form.voltage.label }}
+                  {{ capacitor_form.voltage(class="form-control", id="capVolt") }}
+                </div>
+                <div class="col-md-4">
+                  {{ capacitor_form.voltMeasure.label }} <br>
+                  {{ capacitor_form.voltMeasure(id="capVoltUnits") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ capacitor_form.tolerance.label }}
+                  {{ capacitor_form.tolerance(class="form-control", id="capTolerance") }}
+                </div>
+                <div class="col-md-4">
+                  {{ capacitor_form.dielectric.label }} <br>
+                  {{ capacitor_form.dielectric(class="form-control", id="capDielectric") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ capacitor_form.capPackage.label }}
+                  {{ capacitor_form.capPackage(class="form-control", id="capPackage") }}
+                </div>
+                <div class="col-md-4">
+                  {{ capacitor_form.project_id.label }} <br>
+                  {{ capacitor_form.project_id(class="form-control", id="projectID") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ capacitor_form.bin_no.label }}
+                  {{ capacitor_form.bin_no(class="form-control", id="capBinNo") }}
+                </div>
+                <div class="col-md-4">
+                  {{ capacitor_form.remark.label }} <br>
+                  {{ capacitor_form.remark(class="form-control", id="comment") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+                 <div class="col-md-4"></div>
+                 <div class="col-md-4"></div>
+             </div>
+             <div class="row" id="row_inventory">
+                 <div class="col-md-4"></div>
+                 <div class="col-md-2"> {{ capacitor_form.submit(class="btn btn-success", id="additembutton") }}</div>
+                 <div class="col-md-2"> <a href="{{url_for('inventory') }}" class="btn btn-info push-right">GO BACK</a></div>
+              </div>
+
+        </form>
+    </div>
+    <div id="inductors" class="tab-pane fade">
+    <form method="POST">
+	{{ inductor_form.hidden_tag() }}
+           <div class="row" id="row_inventory">
+             <div class="col-md-4"> {{ inductor_form.manufacturerPartNo.label }}
+              {{ inductor_form.manufacturerPartNo(class="form-control", id="indMPN") }}</div>
+             <div class="col-md-4">
+              {{ inductor_form.manufacturer_name.label }}
+              {{ inductor_form.manufacturer_name(class="form-control", id="indMake") }}
+              </div>
+             </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ inductor_form.indValue.label }}
+                  {{ inductor_form.indValue(class="form-control", id="indValue") }}
+                </div>
+                <div class="col-md-4">
+                  {{ inductor_form.measure.label }} <br>
+                  {{ inductor_form.measure(id="indValueUnits") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ inductor_form.indDCR.label }}
+                  {{ inductor_form.indDCR(class="form-control", id="indDCR") }}
+                </div>
+                <div class="col-md-4">
+                  {{ inductor_form.measureDCR.label }} <br>
+                  {{ inductor_form.measureDCR(id="indDCRUnits") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ inductor_form.tolerance.label }}
+                  {{ inductor_form.tolerance(class="form-control", id="indTolerance") }}
+                </div>
+                <div class="col-md-4">
+                  {{ inductor_form.indPackage.label }} <br>
+                  {{ inductor_form.indPackage(class="form-control", id="indPackage") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ inductor_form.frequency.label }} <br>
+                  {{ inductor_form.frequency(class="form-control", id="indFrequency") }}
+                </div>
+                 <div class="col-md-4">
+                  {{ inductor_form.freq_measure.label }}
+                  {{ inductor_form.freq_measure(class="form-control", id="indFrequencyUnits") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+  	      <div class="col-md-4"></div>
+	      <div class="col-md-4">
+                  {{ inductor_form.project_id.label }}
+                  {{ inductor_form.project_id(class="form-control", id="project_id") }}
+                </div>
+              </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ inductor_form.bin_no.label }}
+                  {{ inductor_form.bin_no(class="form-control", id="indBinNo") }}
+                </div>
+                <div class="col-md-4">
+                  {{ inductor_form.remark.label }} <br>
+                  {{ inductor_form.remark(class="form-control", id="comment") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+                 <div class="col-md-4"></div>
+                 <div class="col-md-4"></div>
+             </div>
+             <div class="row" id="row_inventory">
+                 <div class="col-md-4"></div>
+                 <div class="col-md-2"> {{ inductor_form.submit(class="btn btn-success", id="additembutton") }}</div>
+                 <div class="col-md-2"> <a href="{{url_for('inventory') }}" class="btn btn-info push-right">GO BACK</a></div>
+             </div>
+
+       </form>
+     </div>
+   <div id="diodes" class="tab-pane fade">
+     <form method="POST">
+	{{ diode_form.hidden_tag() }}
+           <div class="row" id="row_inventory">
+             <div class="col-md-4"> {{ diode_form.manufacturerPartNo.label }}
+              {{ diode_form.manufacturerPartNo(class="form-control", id="diodeMPN") }}</div>
+             <div class="col-md-4">
+              {{ diode_form.manufacturer_name.label }}
+              {{ diode_form.manufacturer_name(class="form-control", id="diodeMake") }}
+              </div>
+             </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ diode_form.productType.label }}
+                  {{ diode_form.productType(class="form-control", id="diodeType") }}
+                </div>
+                <div class="col-md-4">
+                  {{ diode_form.diodePackage.label }} <br>
+                  {{ diode_form.diodePackage(class="form-control",id="diodePackage") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ diode_form.reverseVolts.label }}
+                  {{ diode_form.reverseVolts(class="form-control", id="diodeReverseVolts") }}
+                </div>
+                <div class="col-md-4">
+                  {{ diode_form.forwardVolts.label }}
+                  {{ diode_form.forwardVolts(class="form-control",id="diodeForwardVolts") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ diode_form.forwardCurrent.label }}
+                  {{ diode_form.forwardCurrent(class="form-control", id="diodeForwardCurrent") }}
+                </div>
+                <div class="col-md-4">
+                  {{ diode_form.ifMeasure.label }} <br>
+                  {{ diode_form.ifMeasure(id="forwardCurrentUnits") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+  	      <div class="col-md-4"></div>
+	      <div class="col-md-4">
+                  {{ diode_form.project_id.label }}
+                  {{ diode_form.project_id(class="form-control", id="project_id") }}
+                </div>
+              </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ diode_form.bin_no.label }}
+                  {{ diode_form.bin_no(class="form-control", id="diodeBinNo") }}
+                </div>
+                <div class="col-md-4">
+                  {{ diode_form.remark.label }} <br>
+                  {{ diode_form.remark(class="form-control", id="comment") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+                 <div class="col-md-4"></div>
+                 <div class="col-md-4"></div>
+             </div>
+             <div class="row" id="row_inventory">
+                 <div class="col-md-4"></div>
+                 <div class="col-md-2"> {{ diode_form.submit(class="btn btn-success", id="additembutton") }}</div>
+                 <div class="col-md-2"> <a href="{{url_for('inventory') }}" class="btn btn-info push-right">GO BACK</a></div>
+              </div>
+
+        </form>
+    </div>
+    <div id="transistors" class="tab-pane fade">
+       <form method="POST">
+	{{ transistor_form.hidden_tag() }}
+           <div class="row" id="row_inventory">
+             <div class="col-md-4"> {{ transistor_form.manufacturerPartNo.label }}
+              {{ transistor_form.manufacturerPartNo(class="form-control", id="transMPN") }}</div>
+             <div class="col-md-4">
+              {{ transistor_form.manufacturer_name.label }}
+              {{ transistor_form.manufacturer_name(class="form-control", id="transMake") }}
+              </div>
+             </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ transistor_form.productType.label }}
+                  {{ transistor_form.productType(class="form-control", id="transValue") }}
+                </div>
+                <div class="col-md-4">
+                  {{ transistor_form.transPackage.label }}
+                  {{ transistor_form.transPackage(class="form-control", id="transPackage") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ transistor_form.transConfiguration.label }}
+                  {{ transistor_form.transConfiguration(class="form-control", id="transConfig") }}
+                </div>
+                <div class="col-md-4">
+                  {{ transistor_form.collectorEmitterVolts.label }}
+                  {{ transistor_form.collectorEmitterVolts(class="form-control", id="transCollectorEmitterVolts") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ transistor_form.collectorBaseVolts.label }}
+                  {{ transistor_form.collectorBaseVolts(class="form-control", id="transcollectorBaseVolts") }}
+                </div>
+                <div class="col-md-4">
+                  {{ transistor_form.emitterBaseVolts.label }}
+                  {{ transistor_form.emitterBaseVolts(class="form-control", id="transemitterBaseVolts") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ transistor_form.collectorCurrent.label }}
+                  {{ transistor_form.collectorCurrent(class="form-control", id="transCollectorCurrent") }}
+                </div>
+                <div class="col-md-4">
+                  {{ transistor_form.collectorCurrentMeasure.label }} <br>
+                  {{ transistor_form.collectorCurrentMeasure(class="form-control", id="transCollectorCurrentUnits") }}
+                </div>
+             </div>
+              <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ transistor_form.collectorEmitterSat.label }}
+                  {{ transistor_form.collectorEmitterSat(class="form-control", id="transVCEsat") }}
+                </div>
+                <div class="col-md-4">
+                  {{ transistor_form.VCEsat_measure.label }} <br>
+                  {{ transistor_form.VCEsat_measure(class="form-control", id="transVCEsatUnits") }}
+                </div>
+             </div>
+              <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ transistor_form.powerDissipation.label }}
+                  {{ transistor_form.powerDissipation(class="form-control", id="transPowerDissipation") }}
+                </div>
+                <div class="col-md-4">
+                  {{ transistor_form.powerDissipationMeasure.label }} <br>
+                  {{ transistor_form.powerDissipationMeasure(class="form-control", id="transPowerDissipationUnits") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+  	      <div class="col-md-4"></div>
+	      <div class="col-md-4">
+                  {{ transistor_form.project_id.label }}
+                  {{ transistor_form.project_id(class="form-control", id="project_id") }}
+                </div>
+              </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ transistor_form.bin_no.label }}
+                  {{ transistor_form.bin_no(class="form-control", id="transBinNo") }}
+                </div>
+                <div class="col-md-4">
+                  {{ transistor_form.remark.label }} <br>
+                  {{ transistor_form.remark(class="form-control", id="comment") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+                 <div class="col-md-4"></div>
+                 <div class="col-md-4"></div>
+             </div>
+             <div class="row" id="row_inventory">
+                 <div class="col-md-4"></div>
+                 <div class="col-md-2"> {{ transistor_form.submit(class="btn btn-success", id="additembutton") }}</div>
+                 <div class="col-md-2"> <a href="{{url_for('inventory') }}" class="btn btn-info push-right">GO BACK</a></div>
+              </div>
+
+        </form>
+    </div>
+     <div id="mosfets" class="tab-pane fade">
+       <form method="POST">
+	{{ mosfet_form.hidden_tag() }}
+           <div class="row" id="row_inventory">
+             <div class="col-md-4"> {{ mosfet_form.manufacturerPartNo.label }}
+              {{ mosfet_form.manufacturerPartNo(class="form-control", id="mosMPN") }}</div>
+             <div class="col-md-4">
+              {{ mosfet_form.manufacturer_name.label }}
+              {{ mosfet_form.manufacturer_name(class="form-control", id="mosMake") }}
+              </div>
+             </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ mosfet_form.productType.label }}
+                  {{ mosfet_form.productType(class="form-control", id="mosType") }}
+                </div>
+                <div class="col-md-4">
+                  {{ mosfet_form.mosPackage.label }}
+                  {{ mosfet_form.mosPackage(class="form-control", id="mosPackage") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ mosfet_form.channels.label }}
+                  {{ mosfet_form.channels(class="form-control", id="mosChannels") }}
+                </div>
+                <div class="col-md-4">
+                  {{ mosfet_form.vdsBreakdown.label }}
+                  {{ mosfet_form.vdsBreakdown(class="form-control", id="mosVdsBreakdown") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ mosfet_form.drainCurrent.label }}
+                  {{ mosfet_form.drainCurrent(class="form-control", id="mosdrainCurrent") }}
+                </div>
+                <div class="col-md-4">
+                  {{ mosfet_form.drainCurrentMeasure.label }}
+                  {{ mosfet_form.drainCurrentMeasure(class="form-control", id="mosdrainCurrentUnits") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ mosfet_form.rdsON.label }}
+                  {{ mosfet_form.rdsON(class="form-control", id="mosrdsON") }}
+                </div>
+                <div class="col-md-4">
+                  {{ mosfet_form.rdsONMeasure.label }} <br>
+                  {{ mosfet_form.rdsONMeasure(class="form-control", id="mosrdsONUnits") }}
+                </div>
+             </div>
+              <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ mosfet_form.gateSourceVolt.label }}
+                  {{ mosfet_form.gateSourceVolt(class="form-control", id="mosGateSourceVolt") }}
+                </div>
+                <div class="col-md-4">
+                  {{ mosfet_form.gateSourcVoltMeasure.label }} <br>
+                  {{ mosfet_form.gateSourcVoltMeasure(class="form-control", id="mosGateSourceVoltUnits") }}
+                </div>
+             </div>
+              <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ mosfet_form.gateSourceThresholdVolt.label }}
+                  {{ mosfet_form.gateSourceThresholdVolt(class="form-control", id="mosgateSourceThresholdVolt") }}
+                </div>
+                <div class="col-md-4">
+                  {{ mosfet_form.VgsThMeasure.label }} <br>
+                  {{ mosfet_form.VgsThMeasure(class="form-control", id="mosGSThresholdVoltUnits") }}
+                </div>
+             </div>
+              <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ mosfet_form.powerDissipation.label }}
+                  {{ mosfet_form.powerDissipation(class="form-control", id="mospowerDissipation") }}
+                </div>
+                <div class="col-md-4">
+                  {{ mosfet_form.powerDissipationMeasure.label }} <br>
+                  {{ mosfet_form.powerDissipationMeasure(class="form-control", id="mospowerDissipationUnits") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+  	      <div class="col-md-4"></div>
+	      <div class="col-md-4">
+                  {{ mosfet_form.project_id.label }}
+                  {{ mosfet_form.project_id(class="form-control", id="project_id") }}
+                </div>
+              </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ mosfet_form.bin_no.label }}
+                  {{ mosfet_form.bin_no(class="form-control", id="mosBinNo") }}
+                </div>
+                <div class="col-md-4">
+                  {{ mosfet_form.remark.label }} <br>
+                  {{ mosfet_form.remark(class="form-control", id="comment") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+                 <div class="col-md-4"></div>
+                 <div class="col-md-4"></div>
+             </div>
+             <div class="row" id="row_inventory">
+                 <div class="col-md-4"></div>
+                 <div class="col-md-2"> {{ mosfet_form.submit(class="btn btn-success", id="additembutton") }}</div>
+                 <div class="col-md-2"> <a href="{{url_for('inventory') }}" class="btn btn-info push-right">GO BACK</a></div>
+              </div>
+
+        </form>
+    </div>
+    <div id="leds" class="tab-pane fade">
+     <form method="POST">
+	{{ led_form.hidden_tag() }}
+           <div class="row" id="row_inventory">
+             <div class="col-md-4"> {{ led_form.manufacturerPartNo.label }}
+              {{ led_form.manufacturerPartNo(class="form-control", id="ledMPN") }}</div>
+             <div class="col-md-4">
+              {{ led_form.manufacturer_name.label }}
+              {{ led_form.manufacturer_name(class="form-control", id="ledMake") }}
+              </div>
+             </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ led_form.productType.label }}
+                  {{ led_form.productType(class="form-control", id="ledType") }}
+                </div>
+                <div class="col-md-4">
+                  {{ led_form.ledPackage.label }} <br>
+                  {{ led_form.ledPackage(class="form-control",id="ledPackage") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ led_form.ledWavelength.label }}
+                  {{ led_form.ledWavelength(class="form-control", id="ledWavelength") }}
+                </div>
+                <div class="col-md-4">
+                  {{ led_form.ledColorTemperature.label }}
+                  {{ led_form.ledColorTemperature(class="form-control",id="ledColorTemperature") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ led_form.LedIlluminationColor.label }}
+                  {{ led_form.LedIlluminationColor(class="form-control", id="ledcolor") }}
+                </div>
+                <div class="col-md-4">
+                 </div>
+             </div>
+             <div class="row" id="row_inventory">
+  	      <div class="col-md-4"></div>
+	      <div class="col-md-4">
+                  {{ led_form.project_id.label }}
+                  {{ led_form.project_id(class="form-control", id="project_id") }}
+                </div>
+              </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ led_form.bin_no.label }}
+                  {{ led_form.bin_no(class="form-control", id="ledBinNo") }}
+                </div>
+                <div class="col-md-4">
+                  {{ led_form.remark.label }} <br>
+                  {{ led_form.remark(class="form-control", id="comment") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+                 <div class="col-md-4"></div>
+                 <div class="col-md-4"></div>
+             </div>
+             <div class="row" id="row_inventory">
+                 <div class="col-md-4"></div>
+                 <div class="col-md-2"> {{ led_form.submit(class="btn btn-success", id="additembutton") }}</div>
+                 <div class="col-md-2"> <a href="{{url_for('inventory') }}" class="btn btn-info push-right">GO BACK</a></div>
+              </div>
+
+        </form>
+    </div>
+    <div id="actives" class="tab-pane fade">
+     <form method="POST">
+	{{ active_form.hidden_tag() }}
+           <div class="row" id="row_inventory">
+             <div class="col-md-4"> {{ active_form.manufacturerPartNo.label }}
+              {{ active_form.manufacturerPartNo(class="form-control", id="activeMPN") }}</div>
+             <div class="col-md-4">
+              {{ active_form.manufacturer_name.label }}
+              {{ active_form.manufacturer_name(class="form-control", id="activeMake") }}
+              </div>
+             </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ active_form.active_Description.label }}
+                  {{ active_form.active_Description(class="form-control", id="activeDescription") }}
+                </div>
+                <div class="col-md-4">
+                  {{ active_form.activePackage.label }} <br>
+                  {{ active_form.activePackage(class="form-control",id="activePackage") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+  	      <div class="col-md-4"></div>
+	      <div class="col-md-4">
+                  {{ active_form.project_id.label }}
+                  {{ active_form.project_id(class="form-control", id="project_id") }}
+                </div>
+              </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ active_form.bin_no.label }}
+                  {{ active_form.bin_no(class="form-control", id="activeBinNo") }}
+                </div>
+                <div class="col-md-4">
+                  {{ active_form.remark.label }} <br>
+                  {{ active_form.remark(class="form-control", id="comment") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+                 <div class="col-md-4"></div>
+                 <div class="col-md-4"></div>
+             </div>
+             <div class="row" id="row_inventory">
+                 <div class="col-md-4"></div>
+                 <div class="col-md-2"> {{ active_form.submit(class="btn btn-success", id="additembutton") }}</div>
+                 <div class="col-md-2"> <a href="{{url_for('inventory') }}" class="btn btn-info push-right">GO BACK</a></div>
+             </div>
+
+        </form>
+    </div>
+     <div id="mechanicals" class="tab-pane fade">
+     <form method="POST">
+	{{ active_form.hidden_tag() }}
+           <div class="row" id="row_inventory">
+             <div class="col-md-4"> {{ mechanical_form.manufacturerPartNo.label }}
+              {{ mechanical_form.manufacturerPartNo(class="form-control", id="mechMPN") }}</div>
+             <div class="col-md-4">
+              {{ mechanical_form.manufacturer_name.label }}
+              {{ mechanical_form.manufacturer_name(class="form-control", id="mechMake") }}
+              </div>
+             </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ mechanical_form.mechanicalDescription.label }}
+                  {{ mechanical_form.mechanicalDescription(class="form-control", id="mechDescription") }}
+                </div>
+                <div class="col-md-4">
+                  {{ mechanical_form.partType.label }} <br>
+                  {{ mechanical_form.partType(class="form-control",id="mechPartType") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+  	      <div class="col-md-4"></div>
+	      <div class="col-md-4">
+                  {{ mechanical_form.project_id.label }}
+                  {{ mechanical_form.project_id(class="form-control", id="project_id") }}
+                </div>
+              </div>
+             <div class="row" id="row_inventory">
+                <div class="col-md-4">
+                  {{ mechanical_form.bin_no.label }}
+                  {{ mechanical_form.bin_no(class="form-control", id="mechBinNo") }}
+                </div>
+                <div class="col-md-4">
+                  {{ mechanical_form.remark.label }} <br>
+                  {{ mechanical_form.remark(class="form-control", id="comment") }}
+                </div>
+             </div>
+             <div class="row" id="row_inventory">
+                 <div class="col-md-4"></div>
+                 <div class="col-md-4"></div>
+             </div>
+             <div class="row">
+                 <div class="col-md-4"></div>
+                 <div class="col-md-2"> {{ mechanical_form.submit(class="btn btn-success", id="additembutton") }}</div>
+                 <div class="col-md-2"> <a href="{{url_for('inventory') }}" class="btn btn-info push-right">GO BACK</a></div>
+              </div>
+
+        </form>
+    </div>
+  </div>
+</body>
+</html>
